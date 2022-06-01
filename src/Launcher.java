@@ -1,7 +1,6 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class Pathfinding {
+public class Launcher {
     public static void main(String[] args){
         int xSize = 1000;
         int ySize = 1000;
@@ -9,10 +8,11 @@ public class Pathfinding {
 
         Node[][] array = createArray(xSize, ySize, walls);
 
-        Algorithm binarySearch = new Algorithm(array, new int[]{0, 0}, new int[]{10, 10});
-        ArrayList<PriorityQueueElement> result = binarySearch.aStar();
+        Astart binarySearch = new Astart(array, new int[]{0, 0}, new int[]{999, 999});
+        ArrayList<PriorityQueueElement> result = binarySearch.findPath();
         System.out.println("Path: " + result);
-        System.out.println("Lengt: " + result.size());
+        System.out.println("Length: " + result.size());
+        System.out.println("Iteration: " + binarySearch.getIterations());
     }
 
     public static Node[][] createArray(int xSize, int ySize, int[][] walls){
