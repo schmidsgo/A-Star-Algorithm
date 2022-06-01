@@ -22,12 +22,9 @@ public class Astart {
     }
 
     public double calculateHeuristic(Node node){
-        double heuristic = Math.sqrt(Math.pow(Math.abs(node.getX() - end.getX()), 2) +
+        return Math.sqrt(Math.pow(Math.abs(node.getX() - end.getX()), 2) +
                            Math.pow(Math.abs(node.getY() - end.getY()), 2));
-        heuristic = (int)(heuristic*100)/100f;
-        return heuristic;
     }
-
     public ArrayList<PriorityQueueElement> findPath(){
         PriorityQueue<PriorityQueueElement> openList = new PriorityQueue<>(new NodeComparator());
         ArrayList<PriorityQueueElement> closedList = new ArrayList<>();
